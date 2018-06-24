@@ -1,0 +1,1 @@
+http://archive.ics.uci.edu/ml/machine-learning-databases/00292/Wholesale%20customers%20data.csv

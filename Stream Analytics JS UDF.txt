@@ -1,0 +1,15 @@
+analyzeData
+Javascript UDF
+any
+
+function main(temperature, humidity) {
+	var indication = '';
+
+	if(temperature >= 30 and humidity <= 40)
+		indication = 'Shower'
+	else if(temperature >= 30 and humidity > 40)
+		indication = 'Rain'
+	else indication = 'No Rain'
+
+	return indication;
+}

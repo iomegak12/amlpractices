@@ -1,0 +1,17 @@
+predict_height <- function(newdata) {}
+predict_height <- function(newdata) {
+predictions <- predict(model, newdata)
+output <- data.frame(newdata, ScoredLabels=predictions)
+output
+}
+
+install.packages(“AzureML“)
+library(“AzureML“)
+library(“dplyr“)
+
+ws <- workspace(id='1ae4b34ad95d4833b66c3338b24fdbf3', 
+	auth = 'ukenSITPp+VK/LQ7cHOiAyMXcwuQ7P4dhT+m+L2tXUm9Ml2zEy04ZGZmttgtnqVGWM0I+DCvNkLFyfwSt9kQuw==')
+
+api <- publishWebService(ws, fun = predict_height, name='Score Heights', inputSchema = nd, data.frame = TRUE)
+
+consume(api, test)

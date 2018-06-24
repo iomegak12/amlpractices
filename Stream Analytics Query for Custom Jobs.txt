@@ -1,0 +1,14 @@
+WITH calculatedsensordata AS (
+	SELECT [SensorId],
+		[Location],
+		[Building],
+		[RecordedTime],
+		[Temperature],
+		[Humidity],
+		UDF.analyzeData([Temperature], [Humidity]) as Indication
+	FROM [sensordatainput]
+	WHERE [temperature] >= 25
+)
+SELECT *
+	INTO [analyzedsensordata]
+FROM [calculatedSensorData]

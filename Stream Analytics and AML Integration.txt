@@ -1,0 +1,8 @@
+WITH sentiment AS (  
+SELECT text, sentiment(text) as result 
+FROM datainput  
+)  
+
+SELECT text, result.[Score]  
+INTO datamloutput
+FROM sentiment  
